@@ -9,6 +9,7 @@ async function App() {
     console.log(`Server started at port ${port}`);
   } catch (e) {
     console.log(`Error starting server!`);
+
   }
 }
 App();
