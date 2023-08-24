@@ -12,8 +12,20 @@ export class PostRepository extends BaseRepository<Post> {
 
   async createPost(createPostInput: CreatePostInput) {
     return this.save({
-      name: createPostInput.postName,
+      postName: createPostInput.postName,
+      postOrder:createPostInput.postOrder,
       userId: createPostInput.userId,
     });
+  }
+  async getAllPosts(){
+    return this.find()
+  }
+  public async DeletePostById(id:string){
+    try{
+      return (await this.softDelete(id))
+    }
+    catch(err){
+      throw new Error(`${id} not found`)
+    }
   }
 }

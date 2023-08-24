@@ -1,9 +1,9 @@
 import { Field, InputType } from '@nestjs/graphql';
 
 @InputType()
-export class CreateUserInputs {
-  @Field()
+export class UpdateUserInputs {
+  @Field({nullable:true})
   fullname: string;
-  @Field()
+  @Field({nullable:true})
   phoneNumber:string;
 }
